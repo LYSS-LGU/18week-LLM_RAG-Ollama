@@ -1,4 +1,4 @@
-# 18week-LLM_RAG-Ollama
+# LLM_RAG-Ollama
 
 18주차 LLM, RAG, Ollama 관련 학습 내용을 정리한 저장소입니다.
 
@@ -132,6 +132,17 @@
 - AutoTokenizer, AutoModel 활용
 - 모델 파인튜닝 및 저장/로드
 
+#### `13_벡터DB_test.ipynb`
+
+- **Pinecone 벡터 데이터베이스 활용**
+- AWS Serverless 환경에서 벡터 인덱스 생성
+- 3차원 벡터 데이터 저장 및 검색 (영화 장르 분류 예제)
+- 메타데이터를 활용한 필터링 검색 (장르별 검색)
+- 코사인 유사도 기반 유사 벡터 검색
+- Namespace를 통한 데이터 분리 관리
+- 벡터 데이터 업서트(upsert) 및 통계 조회
+- 실시간 벡터 검색 및 결과 분석
+
 ### 📄 설정 및 데이터 파일
 
 #### `restaurant_tour_prompt.json`
@@ -151,9 +162,10 @@
 1. **투자 보고서 자동 생성**: 주식 정보를 기반으로 한 AI 투자 분석 보고서
 2. **실시간 주가 정보 수집**: yfinance를 통한 최신 주식 데이터
 3. **검색 엔진 통합**: Meilisearch를 활용한 빠른 종목 검색
-4. **다양한 LLM 모델 지원**: OpenAI, Upstage, Ollama 등
-5. **프롬프트 엔지니어링**: 다양한 프롬프트 기법 실습
-6. **RAG 시스템 구현**: 검색과 생성의 결합
+4. **벡터 데이터베이스**: Pinecone을 활용한 고차원 벡터 검색
+5. **다양한 LLM 모델 지원**: OpenAI, Upstage, Ollama 등
+6. **프롬프트 엔지니어링**: 다양한 프롬프트 기법 실습
+7. **RAG 시스템 구현**: 검색과 생성의 결합
 
 ## 🛠️ 기술 스택
 
@@ -165,6 +177,7 @@
 - **Ollama**: 로컬 LLM 실행 환경
 - **yfinance**: 주식 데이터 수집
 - **Meilisearch**: 검색 엔진
+- **Pinecone**: 벡터 데이터베이스
 - **Hugging Face Transformers**: 다양한 NLP 모델
 - **Redis**: 캐싱 시스템
 
@@ -174,7 +187,7 @@
 
 ```bash
 pip install streamlit langchain openai yfinance meilisearch redis sentence-transformers
-pip install langchain-upstage langchain-ollama
+pip install langchain-upstage langchain-ollama pinecone-client
 ```
 
 2. Ollama 설치 및 모델 다운로드:
@@ -195,6 +208,7 @@ ollama pull mistral
 OPENAI_API_KEY=your_openai_api_key
 UPSTAGE_API_KEY=your_upstage_api_key
 HF_TOKEN=your_huggingface_token
+PINECONE_API_KEY=your_pinecone_api_key
 ```
 
 4. Streamlit 앱 실행:
