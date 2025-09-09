@@ -118,11 +118,12 @@
 
 #### `12_임베딩비교.ipynb`
 
-- **임베딩 모델 비교 분석**
-- OpenAI Embeddings vs Upstage Embeddings
-- 코사인 유사도를 통한 벡터 비교
-- 다국어 임베딩 성능 평가
-- Sentence Transformers 활용
+- **다양한 임베딩 모델 비교 분석**
+- OpenAI Embeddings (text-embedding-3-small) vs Upstage Solar Embeddings
+- 코사인 유사도를 통한 벡터 성능 비교
+- 다국어 임베딩 성능 평가 (영어-한국어 간 유사도 측정)
+- Sentence Transformers 활용 (multilingual MiniLM 모델)
+- GPU 기반 허깅페이스 임베딩 모델 실습
 
 #### `13_허깅페이스의활용.ipynb`
 
@@ -134,14 +135,32 @@
 
 #### `13_벡터DB_test.ipynb`
 
-- **Pinecone 벡터 데이터베이스 활용**
-- AWS Serverless 환경에서 벡터 인덱스 생성
+- **Pinecone 벡터 데이터베이스 활용 실습**
+- AWS Serverless 환경에서 벡터 인덱스 생성 및 관리
 - 3차원 벡터 데이터 저장 및 검색 (영화 장르 분류 예제)
-- 메타데이터를 활용한 필터링 검색 (장르별 검색)
-- 코사인 유사도 기반 유사 벡터 검색
+- 메타데이터 필터링을 통한 장르별 검색 기능
+- 코사인 유사도 기반 유사 벡터 검색 및 랭킹
 - Namespace를 통한 데이터 분리 관리
-- 벡터 데이터 업서트(upsert) 및 통계 조회
-- 실시간 벡터 검색 및 결과 분석
+- 벡터 데이터 업서트(upsert) 및 인덱스 통계 조회
+- Fetch API를 활용한 벡터 데이터 조회
+- Matplotlib을 활용한 3D 벡터 공간 시각화
+- 임베딩 미션: 한국어 텍스트 데이터의 벡터화 및 유사도 검색
+
+#### `13_1_벡터DB_trial.ipynb`
+
+- **한국어 텍스트 벡터화 실습**
+- Gemini API를 활용한 한국어 임베딩 생성
+- Pinecone 벡터 데이터베이스에 한국어 텍스트 저장
+- 의미적 유사도 기반 검색 및 랭킹
+- 실제 한국어 문장 데이터를 활용한 RAG 시스템 구현
+
+#### `13_Gemini_embedding_mission.ipynb` & `13_Gemini_embedding_mission.py`
+
+- **Google Gemini 임베딩 API 활용**
+- text-embedding-004 모델을 통한 고품질 임베딩 생성
+- 한국어 텍스트의 의미적 유사도 측정
+- 사과(과일) vs 애플(기업) 구분을 통한 임베딩 품질 검증
+- 코사인 유사도 기반 벡터 검색 및 분석
 
 ### 📄 설정 및 데이터 파일
 
@@ -173,6 +192,7 @@
 - **Streamlit**: 웹 애플리케이션 프레임워크
 - **LangChain**: LLM 애플리케이션 개발 프레임워크
 - **OpenAI API**: GPT 모델 활용
+- **Google Gemini**: 임베딩 및 생성 모델
 - **Upstage Solar Pro 2**: 한국형 대규모 언어 모델
 - **Ollama**: 로컬 LLM 실행 환경
 - **yfinance**: 주식 데이터 수집
@@ -187,7 +207,7 @@
 
 ```bash
 pip install streamlit langchain openai yfinance meilisearch redis sentence-transformers
-pip install langchain-upstage langchain-ollama pinecone-client
+pip install langchain-upstage langchain-ollama pinecone-client google-generativeai
 ```
 
 2. Ollama 설치 및 모델 다운로드:
@@ -206,6 +226,7 @@ ollama pull mistral
 
 ```
 OPENAI_API_KEY=your_openai_api_key
+GEMINI_API_KEY=your_gemini_api_key
 UPSTAGE_API_KEY=your_upstage_api_key
 HF_TOKEN=your_huggingface_token
 PINECONE_API_KEY=your_pinecone_api_key

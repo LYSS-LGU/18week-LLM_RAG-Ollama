@@ -171,11 +171,14 @@ tmp/
 *.model
 
 # API keys and secrets
+.env
 .env.local
 .env.production
 .env.staging
 secrets.json
 config.json
+*.key
+*.pem
 
 # Jupyter notebook outputs (optional - uncomment if you want to ignore outputs)
 # *.ipynb
@@ -188,3 +191,6 @@ dump.rdb
 
 # Ollama models (if stored locally)
 .ollama/
+
+# .claude settings
+.claude
