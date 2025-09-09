@@ -162,6 +162,15 @@
 - 사과(과일) vs 애플(기업) 구분을 통한 임베딩 품질 검증
 - 코사인 유사도 기반 벡터 검색 및 분석
 
+#### `14_wikipedia_download.ipynb`
+
+- **Wikipedia 한국어 데이터셋 다운로드**
+- Hugging Face Datasets를 활용한 대규모 한국어 텍스트 데이터 수집
+- 2023년 11월 기준 한국어 Wikipedia 전체 데이터셋
+- 샘플 데이터 추출 및 로컬 저장 (CSV, JSON)
+- 특정 주제별 문서 필터링 및 검색
+- RAG 시스템 구축을 위한 한국어 지식 베이스 구축
+
 ### 📄 설정 및 데이터 파일
 
 #### `restaurant_tour_prompt.json`

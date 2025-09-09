@@ -163,6 +163,12 @@ tmp/
 # *.xlsx
 # *.xls
 
+# Wikipedia dataset files
+wikipedia_ko_sample.csv
+wikipedia_ko_sample.json
+wikipedia_ko_*.csv
+wikipedia_ko_*.json
+
 # Model files
 *.pkl
 *.joblib
